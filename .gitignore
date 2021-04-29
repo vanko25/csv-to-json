@@ -1,0 +1,6 @@
+/node_modules/
+package-lock.json
+/resources/static/assets/uploads/*.xlsx
+/resources/static/assets/uploads/*.csv
+.eslintcache
+/sample-data/~$*

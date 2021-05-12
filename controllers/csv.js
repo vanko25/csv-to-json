@@ -62,7 +62,7 @@ function readCsvFile(path) {
 async function getDeviceUnitCode(id) {
     let data;
     const queryParams = {
-        id: 'urn:ngsi-ld:Device:' + id
+        id: 'urn_ngsi_ld:Device:' + id
     };
     const query = Device.model.findOne(queryParams);
 
@@ -142,7 +142,7 @@ function createEntitiesFromMeasures(measures) {
         const values = _.values(measure);
         values.forEach((value) => {
             const entity = {
-                id: 'urn:ngsi-ld:StitchJob:' + value.id,
+                id: 'urn_ngsi_ld:StitchJob_' + value.id,
                 type: 'Value',
 				value: {
                     type: 'Property',

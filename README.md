@@ -30,3 +30,15 @@ docker-compose up
 bash uploadcsv.sh
 ```
 - monitor behavior in terminal when changing the jobid numbers in csv
+
+## Connection to QuantumLeap - currently no success due to illegal characters
+
+- in terminal cd into cratedb folder and type (the first line is needed to increase the virtual memory):
+```
+sudo sysctl -w vm.max_map_count=262144
+docker-compose -f docker-compose-quantumleap-cratedb.yml up
+```
+- create subscription (unsuccessful):
+```
+bash post_subscription_csv.sh
+```

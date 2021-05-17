@@ -5,14 +5,14 @@ curl --location --request POST 'http://localhost:1026/v2/subscriptions/' --heade
     "entities": [
       {
         "idPattern": ".*",
-        "type": "https://uri.etsi.org/ngsi-ld/default-context/Value"
+        "type": "csv_value"
       }
     ],
         "condition": { "attrs": [] }
   },
   "notification": {
     "http": {
-      "url": "http://192.168.18.152:8668/v2/notify"
+      "url": "http://161.53.68.89:8668/v2/notify"
     },
         "attrs": [],
     "metadata": ["dateCreated", "dateModified"]

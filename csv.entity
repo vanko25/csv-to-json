@@ -1,0 +1,34 @@
+  {
+      "id" : "StitchJob",
+      "type" : "csv_value",
+      "JobID" : {
+         "type" : "Number",
+         "value" : 124,
+         "metadata": {
+          }
+      },
+      "PartID" : {
+         "value" : "2E000777re",
+         "type" : "Text",
+         "metadata": {
+          }
+      },
+      "Qty" : {
+         "type" : "Number",
+         "value" : 356,
+         "metadata": {
+          }
+      },
+      "EstTime" : {
+         "value" : "18:00:02",
+         "type" : "Text",
+         "metadata": {
+          }
+      },
+      "StartDateTime" : {
+         "type" : "Text",
+         "value" : "2021-04-29 14:00:00+03:00",
+         "metadata": {
+          }
+      }
+  }

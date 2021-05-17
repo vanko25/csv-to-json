@@ -4,13 +4,17 @@
 ```
 docker-compose up
 ```
-- start the bash script which will POST a single entity with hardcoded data:
+- start the bash script which will POST/PATCH a single entity created from the csv file, but with hardcoded data types according to the used data.csv:
 ```
-bash curl_create_csv.sh
+bash uploadcsv.sh
 ```
-- monitor behavior in terminal
+- monitor behavior in terminal while changing the values in your csv file
 
-- PATCH for changing the values from file is to be done soon
+- createcsv.sh and updatecsv.sh are scripts called by uploadcsv.sh so they need to have executable permisions
+
+- if you want to restart this script you need to shut down orion or comment the line which creates entities because POST can be done only of non existing entities
+
+- creating (POST) and modifying (PATCH) of the entities are done for first 5 entries (columns) in the csv file. You can add more data (columns) by modifying createcsv.sh and updatecsv.sh. 
 
 ## Connection to QuantumLeap
 

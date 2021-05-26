@@ -11,13 +11,6 @@ the Crate DB table into the PLC.
 
 ![ROSE-AP dataflow from ERP to PLC](https://i.ibb.co/L1v669T/ROSE-AP-1.jpg) 
 
-Once the job is completed or stopped a report is generated in the PLC that is sent to the ERP via the Orion Context Broker. 
-
-We are using the OPC-UA IOT agent to capture the data from the PLC tags and make them available as entities on OCB. 
-They would then be able to be accessed by the ERP to update the status and quantites of a job into its own database. 
-
-![ROSE-AP dataflow from PLC to ERP](https://i.ibb.co/dDB91Bh/ROSE-AP-2.jpg)
-
 ### Install 
 
 ## Periodically uploading csv data

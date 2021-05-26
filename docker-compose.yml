@@ -24,19 +24,6 @@ services:
         command:
             -dbhost mongo -corsOrigin __ALL -inReqPayloadMaxSize 2097152
 
-    csvread:
-        restart: always
-        image: readcsv:v1
-        build:
-            dockerfile: Dockerfile
-            context: .
-        volumes:
-            #- path on the host : path inside the container
-            - $PWD/app-vol:/app
-        environment:
-            - FIWAREHOST=orion
-        ports: 
-            - "39002:39002"
 
-
+   
 

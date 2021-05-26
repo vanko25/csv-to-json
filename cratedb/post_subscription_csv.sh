@@ -12,7 +12,7 @@ curl --location --request POST 'http://localhost:1026/v2/subscriptions/' --heade
   },
   "notification": {
     "http": {
-      "url": "http://161.53.68.89:8668/v2/notify"
+      "url": "http://192.168.0.106:8668/v2/notify"
     },
         "attrs": [],
     "metadata": ["dateCreated", "dateModified"]

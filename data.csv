@@ -1,2 +1,2 @@
-"JobID","PartID","Qty","EstTime","StartDateTime","TestColumn"
-1980,"2E0VENTAC",50,"00:30:00","2021-05-21 16:00:00+03:00",4553
+"JobID","PartID","Qty","EstTime","StartDateTime"
+1986,"2E0GT86",50,"00:30:00","2021-05-21 16:00:00+03:00"

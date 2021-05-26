@@ -17,7 +17,7 @@ then
 fi
 
 cat $file>/tmp/csvfile.tmp
-
+#Read comma separated data from CSV file
 x=1
 while read line
 do
@@ -28,44 +28,42 @@ do
 	else
 		IFS=',' read -r -a values <<< "$line"	
 	fi
+	
 done < /tmp/csvfile.tmp
 
-#hardcoded
-#only 5 entries in the csv file
+#Declare new array called Types to get the data type of the entries from the CSV
+declare -a types
+
+realvalues=$((${#values[@]}-1))
+
+for i in $(seq 0 $realvalues)
+
+do
+	re='^[0-9]+([.][0-9]+)?$'
+	if ! [[ ${values[$i]} =~ $re ]] ; then
+	types+=("Text")
+	else types+=("Number")
+	fi
+	
+done 
+
+#Generate String payload for the curl command below with data from the csv file
+for i in $(seq 0 $realvalues)
+
+do
+	STR="${names[i]}:{\"type\" : \"${types[i]}\",\"value\" : ${values[i]},\"metadata\": {}},"
+	STR2+=" ${STR}"
+	
+done 
+
+STR2=${STR2%?}
+
+#Send data to Orion Context broker
 curl $ip:1026/v2/entities -s -S -H 'Content-Type: application/json' -d @- <<EOF
   {
       "id" : "StitchJob",
       "type" : "csv_value",
-      ${names[0]} : {
-         "type" : "Number",
-         "value" : ${values[0]},
-         "metadata": {
-          }
-      },
-      ${names[1]} : {
-         "value" : ${values[1]},
-         "type" : "Text",
-         "metadata": {
-          }
-      },
-      ${names[2]} : {
-         "type" : "Number",
-         "value" : ${values[2]},
-         "metadata": {
-          }
-      },
-      ${names[3]} : {
-         "value" : ${values[3]},
-         "type" : "Text",
-         "metadata": {
-          }
-      },
-      ${names[4]} : {
-         "type" : "Text",
-         "value" : ${values[4]},
-         "metadata": {
-          }
-      }
+      ${STR2}
   }
 EOF
 
